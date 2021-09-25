@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+}
+
+.count {
+    display: grid;
+    justify-content: center;
+    margin: 0;
+    display: block;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 20vmin 20vmin;
+    grid-template-rows: 26vmin 26vmin;
+    gap: 1vmin;
+    justify-content: center;
+    border: 2px;
+}
+
+div.c-deck, div.p-deck {
+    background-color: teal;
+    margin: 0;
+    border-color: black;
+}
+
+.p-war-game {
+    margin: 0;
+    background-color: teal;
+    
+}
+
+h2 {
+    display: inline;
+    text-align: auto;
+    font-size: 20px;   
+    
+}
