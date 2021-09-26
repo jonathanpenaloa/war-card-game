@@ -3,41 +3,51 @@
 }
 
 body {
+    align-content: center;
+    background: cornsilk;
+}
+
+h1 {
     text-align: center;
-    margin: 0;
+    margin: 0px;
+    font-family: 'Anton', sans-serif;
 }
-
-.count {
-    display: grid;
-    justify-content: center;
-    margin: 0;
-    display: block;
-}
-
 main {
+    display: flex;
+    justify-content: center;
+    gap: 10vmin;
+}
+
+section {
     display: grid;
     grid-template-columns: 20vmin 20vmin;
-    grid-template-rows: 26vmin 26vmin;
-    gap: 1vmin;
+    grid-template-rows: 35vmin 35vmin;
+    gap: 5vmin;
     justify-content: center;
-    border: 2px;
 }
 
-div.c-deck, div.p-deck {
-    background-color: teal;
-    margin: 0;
-    border-color: black;
+button {
+    display: grid;
+    justify-content: center;
+    height: 4vmin;
+    width: 40vmin;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 5vmin;
 }
 
-.p-war-game {
-    margin: 0;
-    background-color: teal;
-    
+footer {
+    display: grid;
+    grid-template-columns: 20vmin 20vmin;
+    justify-content: center;  
+    gap: 5px;
 }
 
-h2 {
-    display: inline;
-    text-align: auto;
-    font-size: 20px;   
-    
+#pHandCards, #cHandCards {
+    background: rgb(34, 16, 199);
 }
+
+#pwar, #cwar {
+    background: rgb(165, 157, 157);
+}
+
