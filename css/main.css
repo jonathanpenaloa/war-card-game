@@ -4,7 +4,7 @@
 
 body {
     align-content: center;
-    background: cornsilk;
+    background: white;
 }
 
 h1 {
@@ -16,12 +16,14 @@ main {
     display: flex;
     justify-content: center;
     gap: 10vmin;
+    margin: 0px;
+    /* border: 10vmin solid black; */
 }
 
 section {
     display: grid;
     grid-template-columns: 20vmin 20vmin;
-    grid-template-rows: 35vmin 35vmin;
+    grid-template-rows: 30vmin 30vmin;
     gap: 5vmin;
     justify-content: center;
 }
@@ -34,6 +36,8 @@ button {
     margin-top: 5px;
     outline: none;
     border-radius: 5vmin;
+    border-color: red;
+    background-color: white;
 }
 
 footer {
@@ -44,10 +48,13 @@ footer {
 }
 
 #pHandCards, #cHandCards {
-    background: rgb(34, 16, 199);
+    /* background: rgb(34, 16, 199); */
+    border: 0.1vmin solid black;
 }
 
 #pwar, #cwar {
-    background: rgb(165, 157, 157);
+    /* background: rgb(165, 157, 157); */
+    border: 0.1vmin solid black;
+
 }
 
