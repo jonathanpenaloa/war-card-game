@@ -26,6 +26,7 @@ section {
     grid-template-rows: 30vmin 30vmin;
     gap: 5vmin;
     justify-content: center;
+    font-size: 5vmin;
 }
 
 button {
