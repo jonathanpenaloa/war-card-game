@@ -27,7 +27,7 @@ document.querySelector('button').addEventListener('click', handlePlay);
 
 
 /*----- functions -----*/
-
+//on starting game cards will be split in two shuffled 
 function init() {
   let shuffeldDeck = getNewShuffledDeck();
   pDeck = shuffeldDeck.splice(0, 26);
@@ -35,7 +35,6 @@ function init() {
   pHand = [];
   cHand = [];
   render();
-    // renderB();
     // newShuffeledDeck();
 
 }
@@ -49,6 +48,18 @@ function render() {
   }
 }
 
+
+function winningHand(){
+  if (pHand[0].value === cHand[0].value){
+    winner = 't';
+  } else if (pHand[0].value > cHand[0].value) {
+    winner = pHand; 
+    pHand = pHand[0].value.push() + cHand[0].value.push(); 
+    console.log(pHand);
+  } else {
+    winner = cHand;
+  }
+}
 
 function handlePlay() {
   let pCard = pDeck.shift();
@@ -68,7 +79,7 @@ function buildMasterDeck() {
         // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
         // Setting the 'value' property for game of blackjack, not war
-        value: Number(rank) || (rank === 'A' ? 11 : 10)
+        value: Number(rank) || (rank === 'A' ? 14 : 10) || (rank === 'J' ? 11 : 10) || (rank === 'Q' ? 12 : 10) || (rank === 'K' ? 13 : 10)
       });
     });
   });
@@ -88,18 +99,3 @@ function getNewShuffledDeck() {
   }
   return newShuffledDeck;
 }
-
-
-  // function renderDeckInContainer(Deck, ) {
-  //   section.innerHTML = '';
-  //   // Let's build the cards as a string of HTML
-  //   let cardsHtml = '';
-  //   deck.forEach(function(card) {
-  //     cardsHtml += `<div class="card ${card.face}"></div>`;
-  //   });
-  //   // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
-  //   // const cardsHtml = deck.reduce(function(html, card) {
-  //   //   return html + `<div class="card ${card.face}"></div>`;
-  //   // }, '');
-  //   section.innerHTML = cardsHtml;
-  // }
