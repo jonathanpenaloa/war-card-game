@@ -37,11 +37,17 @@ section {
     justify-content: center;
     height: 4vmin;
     width: 40vmin;
+    box-shadow: inset #f9e506;
     margin-top: 5px;
     outline: none;
     border-radius: 5vmin;
     border-color: red;
     background-color: white;
+    cursor: pointer;
+}
+
+#replay {
+    visibility: hidden;
 }
 
 footer {
@@ -52,12 +58,11 @@ footer {
 }
 
 #pHandCards, #cHandCards {
-    /* background: rgb(34, 16, 199); */
     border: 0.1vmin solid black;
 }
 
 #pwar, #cwar {
-    /* background: rgb(165, 157, 157); */
+    
     border: 0.1vmin solid black;
 
 }

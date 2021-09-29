@@ -9,6 +9,8 @@ const cardLookUp = {
   "A": 14
 }
 const masterDeck = buildMasterDeck();
+const msgEl = document.querySelector('h1');
+
 // const shuffledHand = getShuffeledDeck();
 
 /*----- app's state (variables) -----*/
@@ -18,20 +20,21 @@ let pDeck, cDeck, pHand, cHand, war;
 
 /*----- cached element references -----*/
 
-init();
 let pHandEl = document.querySelector('#pHand');
 let cHandEl = document.querySelector('#cHand');
 let warButtonEl = document.querySelector("#war");
 let playBtnEl = document.querySelector("#play");
-
+let replayBtnEl = document.querySelector("#replay");
 /*----- event listeners -----*/
 
 playBtnEl.addEventListener('click', handlePlay);
 warButtonEl.addEventListener('click', warStarts);
-
+replayBtnEl.addEventListener('click', init);
 
 /*----- functions -----*/
 //on starting game cards will be split in two shuffled 
+init();
+
 function init() {
   let shuffeldDeck = getNewShuffledDeck();
   pDeck = shuffeldDeck.splice(0, 26);
@@ -48,6 +51,7 @@ function handlePlay() {
   cHand.unshift(cCard);
   render();
   winningHand();
+  winner();
 }
 
 function winningHand() {
@@ -63,9 +67,9 @@ function winningHand() {
 }
 
 function renderWarButton() {
-  warButtonEl.style.visibitity = "visible";
-  playBtnEl.style.visibitity = "hidden";
-  console.log("hello");
+  warButtonEl.style.visibility = "visible";
+  playBtnEl.style.visibility = "hidden";
+  msgEl.innerHTML = "Its War";
 }
 
 function warStarts() {
@@ -73,7 +77,16 @@ function warStarts() {
   cHand.unshift(cDeck.pop(), cDeck.pop(), cDeck.pop());
   render();
   winningHand();
+  unrenderWarButton();
 };
+
+function unrenderWarButton() {
+  if(pHand !== cHand) {
+    warButtonEl.style.visibility = "hidden";
+    playBtnEl.style.visibility = "visible";
+    msgEl.innerHTML = "Keep playing";
+  }
+}
 
 function render() {
   if (pHand.length > 0 && cHand.length > 0) {
@@ -81,6 +94,9 @@ function render() {
     let cHandTemplate = `<div class="card ${cHand[0].face}"></div>`; 
     pHandEl.innerHTML = pHandTemplate;
     cHandEl.innerHTML = cHandTemplate; 
+  } else {
+    pHand.innerHTML = 
+    cHand.innerHTML = 
   }
 }
   
@@ -112,4 +128,26 @@ function getNewShuffledDeck() {
     newShuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
   }
   return newShuffledDeck;
+}
+
+function winner() {
+  if (pDeck.length >= '35'){
+    winner = pHand;
+    playBtnEl.style.visibility = "hidden";
+    msgEl.innerHTML = "Player Wins!";
+    replayBtnEl.style.visibility = "visible";
+  } else if (cDeck.length >= '35'){
+    winner = cHand; 
+    
+    playBtnEl.style.visibility = "hidden";
+    msgEl.innerHTML = "Computer Wins!";
+    replayBtnEl.style.visibility = "visible";
+  }
+} 
+
+function playAgain() {
+  playBtnEl.style.visibility = "visible";
+  warBtnEl.style.visibility = "hidden";
+  replayBtnEl.style.visibility = "hidden";
+  init();
 }
