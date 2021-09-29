@@ -2,14 +2,17 @@
 const suits = ['s', 'c', 'd', 'h'];
 const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
 
+const cardLookUp = {
+  "J": 11,
+  "Q": 12,
+  "K": 13,
+  "A": 14
+}
 const masterDeck = buildMasterDeck();
 // const shuffledHand = getShuffeledDeck();
 
 /*----- app's state (variables) -----*/
-let pDeck, cDeck, pHand, cHand;
-
-
-
+let pDeck, cDeck, pHand, cHand, war;
 
 
 
@@ -18,12 +21,13 @@ let pDeck, cDeck, pHand, cHand;
 init();
 let pHandEl = document.querySelector('#pHand');
 let cHandEl = document.querySelector('#cHand');
-
-
+let warButtonEl = document.querySelector("#war");
+let playBtnEl = document.querySelector("#play");
 
 /*----- event listeners -----*/
 
-document.querySelector('button').addEventListener('click', handlePlay);
+playBtnEl.addEventListener('click', handlePlay);
+warButtonEl.addEventListener('click', warStarts);
 
 
 /*----- functions -----*/
@@ -35,9 +39,41 @@ function init() {
   pHand = [];
   cHand = [];
   render();
-    // newShuffeledDeck();
-
 }
+
+function handlePlay() {
+  let pCard = pDeck.shift();
+  pHand.unshift(pCard);
+  let cCard = cDeck.shift();
+  cHand.unshift(cCard);
+  render();
+  winningHand();
+}
+
+function winningHand() {
+  if (pHand[0].value === cHand[0].value) return renderWarButton();
+  if (pHand[0].value > cHand[0].value) {
+    pDeck.push(...cHand, ...pHand);
+    cHand = [];
+    pHand = [];
+  }   else {
+    cDeck.push(...pHand.splice(0), ...cHand.splice(0));
+  }
+  render();
+}
+
+function renderWarButton() {
+  warButtonEl.style.visibitity = "visible";
+  playBtnEl.style.visibitity = "hidden";
+  console.log("hello");
+}
+
+function warStarts() {
+  pHand.unshift(pDeck.pop(), pDeck.pop(), pDeck.pop());
+  cHand.unshift(cDeck.pop(), cDeck.pop(), cDeck.pop());
+  render();
+  winningHand();
+};
 
 function render() {
   if (pHand.length > 0 && cHand.length > 0) {
@@ -47,30 +83,8 @@ function render() {
     cHandEl.innerHTML = cHandTemplate; 
   }
 }
-
-
-function winningHand(){
-  if (pHand[0].value === cHand[0].value){
-    winner = 't';
-  } else if (pHand[0].value > cHand[0].value) {
-    winner = pHand; 
-    pHand = pHand[0].value.push() + cHand[0].value.push(); 
-    console.log(pHand);
-  } else {
-    winner = cHand;
-  }
-}
-
-function handlePlay() {
-  let pCard = pDeck.shift();
-  pHand.unshift(pCard);
-  let cCard = cDeck.shift();
-  cHand.unshift(cCard);
-  render();
-}
-
-
-function buildMasterDeck() {
+  
+  function buildMasterDeck() {
   const deck = [];
   // Use nested forEach to generate card objects
   suits.forEach(function(suit) {
@@ -79,7 +93,7 @@ function buildMasterDeck() {
         // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
         // Setting the 'value' property for game of blackjack, not war
-        value: Number(rank) || (rank === 'A' ? 14 : 10) || (rank === 'J' ? 11 : 10) || (rank === 'Q' ? 12 : 10) || (rank === 'K' ? 13 : 10)
+        value: Number(rank) || cardLookUp[rank]
       });
     });
   });

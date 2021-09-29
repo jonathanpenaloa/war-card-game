@@ -17,7 +17,7 @@ main {
     justify-content: center;
     gap: 10vmin;
     margin: 0px;
-    /* border: 10vmin solid black; */
+
 }
 
 section {
@@ -28,8 +28,11 @@ section {
     justify-content: center;
     font-size: 5vmin;
 }
+#war {
+    visibility: hidden;
 
-button {
+}
+#play {
     display: grid;
     justify-content: center;
     height: 4vmin;
