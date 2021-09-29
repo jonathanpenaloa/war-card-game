@@ -30,14 +30,15 @@ section {
 }
 #war {
     visibility: hidden;
+    justify-items: ;
 
 }
 #play {
     display: grid;
     justify-content: center;
-    height: 4vmin;
+    height: 10vmin;
     width: 40vmin;
-    box-shadow: inset #f9e506;
+    /* box-shadow: inset #f9e506; */
     margin-top: 5px;
     outline: none;
     border-radius: 5vmin;

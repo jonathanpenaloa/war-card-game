@@ -101,7 +101,7 @@ function render() {
     pHandEl.innerHTML = `<div class="card back"></div>`;
     cHandEl.innerHTML = `<div class="card back"></div>`;
   }
-  pCountEl.innerText = pDeck.length + pHandEl.length;
+  pCountEl.innerText = pDeck.length + pHand.length;
   cCountEl.innerText = cDeck.length + cHand.length;
 }
 
@@ -157,5 +157,3 @@ function playAgain() {
   replayBtnEl.style.visibility = "hidden";
   init();
 }
-
-// let pHandTemplate = `<div class="card ${pHand[0].face}"></div>`;
