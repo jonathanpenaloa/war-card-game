@@ -22,14 +22,18 @@ let pDeck, cDeck, pHand, cHand, war;
 
 let pHandEl = document.querySelector('#pHand');
 let cHandEl = document.querySelector('#cHand');
+
 let warButtonEl = document.querySelector("#war");
 let playBtnEl = document.querySelector("#play");
 let replayBtnEl = document.querySelector("#replay");
+
+let pCountEl = document.querySelector("#pCardCount")
+let cCountEl = document.querySelector("#cCardCount")
 /*----- event listeners -----*/
 
 playBtnEl.addEventListener('click', handlePlay);
 warButtonEl.addEventListener('click', warStarts);
-replayBtnEl.addEventListener('click', init);
+replayBtnEl.addEventListener('click', playAgain);
 
 /*----- functions -----*/
 //on starting game cards will be split in two shuffled 
@@ -60,10 +64,9 @@ function winningHand() {
     pDeck.push(...cHand, ...pHand);
     cHand = [];
     pHand = [];
-  }   else {
+  } else {
     cDeck.push(...pHand.splice(0), ...cHand.splice(0));
   }
-  render();
 }
 
 function renderWarButton() {
@@ -75,13 +78,13 @@ function renderWarButton() {
 function warStarts() {
   pHand.unshift(pDeck.pop(), pDeck.pop(), pDeck.pop());
   cHand.unshift(cDeck.pop(), cDeck.pop(), cDeck.pop());
-  render();
+  render(); // replace with new warCard func
   winningHand();
   unrenderWarButton();
 };
 
 function unrenderWarButton() {
-  if(pHand !== cHand) {
+  if (pHand !== cHand) {
     warButtonEl.style.visibility = "hidden";
     playBtnEl.style.visibility = "visible";
     msgEl.innerHTML = "Keep playing";
@@ -91,20 +94,22 @@ function unrenderWarButton() {
 function render() {
   if (pHand.length > 0 && cHand.length > 0) {
     let pHandTemplate = `<div class="card ${pHand[0].face}"></div>`;
-    let cHandTemplate = `<div class="card ${cHand[0].face}"></div>`; 
+    let cHandTemplate = `<div class="card ${cHand[0].face}"></div>`;
     pHandEl.innerHTML = pHandTemplate;
-    cHandEl.innerHTML = cHandTemplate; 
+    cHandEl.innerHTML = cHandTemplate;
   } else {
-    pHand.innerHTML = 
-    cHand.innerHTML = 
+    pHandEl.innerHTML = `<div class="card back"></div>`;
+    cHandEl.innerHTML = `<div class="card back"></div>`;
   }
+  pCountEl.innerText = pDeck.length + pHandEl.length;
+  cCountEl.innerText = cDeck.length + cHand.length;
 }
-  
-  function buildMasterDeck() {
+
+function buildMasterDeck() {
   const deck = [];
   // Use nested forEach to generate card objects
-  suits.forEach(function(suit) {
-    ranks.forEach(function(rank) {
+  suits.forEach(function (suit) {
+    ranks.forEach(function (rank) {
       deck.push({
         // The 'face' property maps to the library's CSS classes for cards
         face: `${suit}${rank}`,
@@ -131,23 +136,26 @@ function getNewShuffledDeck() {
 }
 
 function winner() {
-  if (pDeck.length >= '35'){
+  if (pDeck.length >= '35') {
     winner = pHand;
     playBtnEl.style.visibility = "hidden";
     msgEl.innerHTML = "Player Wins!";
     replayBtnEl.style.visibility = "visible";
-  } else if (cDeck.length >= '35'){
-    winner = cHand; 
-    
+  } else if (cDeck.length >= '35') {
+    winner = cHand;
+
     playBtnEl.style.visibility = "hidden";
     msgEl.innerHTML = "Computer Wins!";
     replayBtnEl.style.visibility = "visible";
   }
-} 
+}
 
 function playAgain() {
+  msgEl.innerHTML = "Do you want war?"
   playBtnEl.style.visibility = "visible";
-  warBtnEl.style.visibility = "hidden";
+  warButtonEl.style.visibility = "hidden";
   replayBtnEl.style.visibility = "hidden";
   init();
 }
+
+// let pHandTemplate = `<div class="card ${pHand[0].face}"></div>`;
