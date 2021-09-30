@@ -73,6 +73,8 @@ function renderWarButton() {
   warButtonEl.style.visibility = "visible";
   playBtnEl.style.visibility = "hidden";
   msgEl.innerHTML = "Its War";
+  document.querySelector("body").style.backgroundColor = "black";
+
 }
 
 function warStarts() {
@@ -88,6 +90,7 @@ function unrenderWarButton() {
     warButtonEl.style.visibility = "hidden";
     playBtnEl.style.visibility = "visible";
     msgEl.innerHTML = "Keep playing";
+    document.querySelector("body").style.backgroundColor = "rgb(4, 107, 47)";
   }
 }
 
@@ -98,8 +101,9 @@ function render() {
     pHandEl.innerHTML = pHandTemplate;
     cHandEl.innerHTML = cHandTemplate;
   } else {
-    pHandEl.innerHTML = `<div class="card back"></div>`;
-    cHandEl.innerHTML = `<div class="card back"></div>`;
+    pHandEl.innerHTML = '';
+    cHandEl.innerHTML = '';
+    // `<div class="card back"></div>`
   }
   pCountEl.innerText = pDeck.length + pHand.length;
   cCountEl.innerText = cDeck.length + cHand.length;
