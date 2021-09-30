@@ -81,9 +81,11 @@ function warStarts() {
   pHand.unshift(pDeck.pop(), pDeck.pop(), pDeck.pop());
   cHand.unshift(cDeck.pop(), cDeck.pop(), cDeck.pop());
   render(); // replace with new warCard func
-  winningHand();
-  unrenderWarButton();
-};
+  if (pHand[0].value !== cHand[0].value) {
+    winningHand();
+    unrenderWarButton();
+  } 
+}
 
 function unrenderWarButton() {
   if (pHand !== cHand) {

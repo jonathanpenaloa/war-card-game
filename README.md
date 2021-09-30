@@ -1,21 +1,23 @@
-# project-1---war-card-game-
+# War Card Game 
 
 ☐ A description of your game. Background info of the game is a nice touch.
 
 - You will play against the computer in the card game. The goal is to get all cards into your deck to secure the win. 
 
-☐ Screenshot(s): Images of your actual game.
+☐ Screenshot: 
 
-
+<img src="https://i.imgur.com/d76nhKA.png">
 
 ☐ Technologies Used: 
 - HTML 
 - CSS
 - JavaScript 
 
-
+<link>
 
 ☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
+
+link to app game - 
 
 1. The cards will be split in two deck of 26 cards when user clicks "Lets Play" button.
 

@@ -43,7 +43,7 @@ section {
     border-color:red;
     background-color: red;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 2vmin;
     font-family: 'Anton', sans-serif;
 
 }
@@ -58,7 +58,7 @@ section {
     border-color: red;
     background-color:white;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 2vmin;
     font-family: 'Anton', sans-serif;
     box-shadow: 5px 10px 10px 5px black;
 }
@@ -75,7 +75,7 @@ section {
     border-color:red;
     background-color: white;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 2vmin;
     font-family: 'Anton', sans-serif;
 }
 
