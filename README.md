@@ -13,7 +13,7 @@
 - CSS
 - JavaScript 
 
-<link src="https://jonathanpenaloa.github.io/war-card-game"/>
+[link to game](https://jonathanpenaloa.github.io/war-card-game)
 
 ☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
 
@@ -23,7 +23,7 @@ link to app game -
 
 2. The cards that show up will represent Player's hand and Computer's card.
 
-3. Winner Card will take both cards and Add them to their deck.
+3. Winning Card will take both cards and Add them to their deck.
 
 4. When pleyer card and Computer Cards are the same, "WAR" starts.
 

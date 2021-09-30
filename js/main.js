@@ -11,12 +11,8 @@ const cardLookUp = {
 const masterDeck = buildMasterDeck();
 const msgEl = document.querySelector('h1');
 
-// const shuffledHand = getShuffeledDeck();
-
 /*----- app's state (variables) -----*/
 let pDeck, cDeck, pHand, cHand, war;
-
-
 
 /*----- cached element references -----*/
 
@@ -36,7 +32,6 @@ warButtonEl.addEventListener('click', warStarts);
 replayBtnEl.addEventListener('click', playAgain);
 
 /*----- functions -----*/
-//on starting game cards will be split in two shuffled 
 init();
 
 function init() {
@@ -80,7 +75,7 @@ function renderWarButton() {
 function warStarts() {
   pHand.unshift(pDeck.pop(), pDeck.pop(), pDeck.pop());
   cHand.unshift(cDeck.pop(), cDeck.pop(), cDeck.pop());
-  render(); // replace with new warCard func
+  render(); 
   if (pHand[0].value !== cHand[0].value) {
     winningHand();
     unrenderWarButton();
@@ -105,7 +100,6 @@ function render() {
   } else {
     pHandEl.innerHTML = '';
     cHandEl.innerHTML = '';
-    // `<div class="card back"></div>`
   }
   pCountEl.innerText = pDeck.length + pHand.length;
   cCountEl.innerText = cDeck.length + cHand.length;
@@ -142,14 +136,12 @@ function getNewShuffledDeck() {
 }
 
 function winner() {
-  if (pDeck.length >= '35') {
-    winner = pHand;
+    console.log(pDeck, cDeck);
+  if (pDeck.length + pHand.length >= 50) {
     playBtnEl.style.visibility = "hidden";
     msgEl.innerHTML = "Player Wins!";
     replayBtnEl.style.visibility = "visible";
-  } else if (cDeck.length >= '35') {
-    winner = cHand;
-
+  } else if (cDeck.length + cHand.length >= 50) {
     playBtnEl.style.visibility = "hidden";
     msgEl.innerHTML = "Computer Wins!";
     replayBtnEl.style.visibility = "visible";
