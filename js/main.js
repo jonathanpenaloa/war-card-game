@@ -136,7 +136,6 @@ function getNewShuffledDeck() {
 }
 
 function winner() {
-    console.log(pDeck, cDeck);
   if (pDeck.length + pHand.length >= 50) {
     playBtnEl.style.visibility = "hidden";
     msgEl.innerHTML = "Player Wins!";
