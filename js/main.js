@@ -56,10 +56,12 @@ function handlePlay() {
 function winningHand() {
   if (pHand[0].value === cHand[0].value) return renderWarButton();
   if (pHand[0].value > cHand[0].value) {
+    msgEl.innerHTML = "Your Hand wins";
     pDeck.push(...cHand, ...pHand);
     cHand = [];
     pHand = [];
   } else {
+    msgEl.innerHTML = "Computer Hand wins";
     cDeck.push(...pHand.splice(0), ...cHand.splice(0));
   }
 }
@@ -67,8 +69,8 @@ function winningHand() {
 function renderWarButton() {
   warButtonEl.style.visibility = "visible";
   playBtnEl.style.visibility = "hidden";
-  msgEl.innerHTML.style = "Its War";
-  document.querySelector("body").style.backgroundColor = "black";
+  msgEl.innerHTML = "War! 3 cards at risk!";
+  document.querySelector("body").style.backgroundColor = "DarkOliveGreen";
 
 }
 
@@ -138,11 +140,11 @@ function getNewShuffledDeck() {
 function winner() {
   if (pDeck.length + pHand.length >= 50) {
     playBtnEl.style.visibility = "hidden";
-    msgEl.innerHTML = "Player Wins!";
+    msgEl.innerHTML = "You Win!";
     replayBtnEl.style.visibility = "visible";
   } else if (cDeck.length + cHand.length >= 50) {
     playBtnEl.style.visibility = "hidden";
-    msgEl.innerHTML = "Computer Wins!";
+    msgEl.innerHTML = "Computer Wins :(";
     replayBtnEl.style.visibility = "visible";
   }
 }
