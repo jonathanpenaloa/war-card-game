@@ -13,7 +13,7 @@
 - CSS
 - JavaScript 
 
-<link>
+<link src="https://jonathanpenaloa.github.io/war-card-game"/>
 
 ☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
 
