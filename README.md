@@ -8,10 +8,10 @@
 
 
 
-☐ Technologies Used: List of the technologies used, e.g., JavaScript, HTML, CSS...
-
-- This UX was build with HTML and CSS.
-- FUnctionality was created witj JavaScript 
+☐ Technologies Used: 
+- HTML 
+- CSS
+- JavaScript 
 
 
 
@@ -35,6 +35,6 @@
 
 - I want to add animation that will show the War cards somewhere else in the screen. Then add them to the winners deck. 
 
-- I would like to add sound the plays when you shuffel split the deck and deal cards.
+- I would like to add sound the plays when you deal cards.
 
 - Change the background to represent when game inters War.

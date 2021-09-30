@@ -72,7 +72,7 @@ function winningHand() {
 function renderWarButton() {
   warButtonEl.style.visibility = "visible";
   playBtnEl.style.visibility = "hidden";
-  msgEl.innerHTML = "Its War";
+  msgEl.innerHTML.style = "Its War";
   document.querySelector("body").style.backgroundColor = "black";
 
 }
