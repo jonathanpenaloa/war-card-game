@@ -88,7 +88,6 @@ function unrenderWarButton() {
   if (pHand !== cHand) {
     warButtonEl.style.visibility = "hidden";
     playBtnEl.style.visibility = "visible";
-    msgEl.innerHTML = "Keep playing";
     document.querySelector("body").style.backgroundColor = "rgb(4, 107, 47)";
   }
 }
