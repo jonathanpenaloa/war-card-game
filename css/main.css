@@ -11,12 +11,14 @@ h1 {
     text-align: center;
     margin: 0px;
     font-family: 'Anton', sans-serif;
+    font-size: 50px;
 }
 main {
     display: flex;
     justify-content: center;
     gap: 10vmin;
     margin: 0px;
+    align-items: center;
 
 }
 
@@ -30,25 +32,49 @@ section {
 }
 #war {
     visibility: hidden;
-    justify-items: ;
+    display: grid;
+    justify-content: center;
+    height: 5vmin;
+    width: 15vmin;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 5vmin;
+    border-color:red;
+    background-color: red;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
 
 }
 #play {
     display: grid;
     justify-content: center;
-    height: 10vmin;
-    width: 40vmin;
-    /* box-shadow: inset #f9e506; */
+    height: 5vmin;
+    width: 15vmin;
     margin-top: 5px;
     outline: none;
     border-radius: 5vmin;
     border-color: red;
-    background-color: white;
+    background-color:white;
     cursor: pointer;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
 }
 
 #replay {
     visibility: hidden;
+    display: grid;
+    justify-content: center;
+    height: 5vmin;
+    width: 15vmin;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 5vmin;
+    border-color:red;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
 }
 
 footer {
@@ -68,3 +94,9 @@ footer {
 
 }
 
+#cCardCount, #pCardCount {
+    text-align: center;
+    /* margin: 0px; */
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+}
