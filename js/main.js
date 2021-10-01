@@ -10,6 +10,7 @@ const cardLookUp = {
 }
 const masterDeck = buildMasterDeck();
 const msgEl = document.querySelector('h1');
+const sound = new Audio('sounds/ds.mp3');
 
 /*----- app's state (variables) -----*/
 let pDeck, cDeck, pHand, cHand, war;
@@ -44,6 +45,7 @@ function init() {
 }
 
 function handlePlay() {
+  sound.play();
   let pCard = pDeck.shift();
   pHand.unshift(pCard);
   let cCard = cDeck.shift();
@@ -75,13 +77,14 @@ function renderWarButton() {
 }
 
 function warStarts() {
+  sound.play();
   pHand.unshift(pDeck.pop(), pDeck.pop(), pDeck.pop());
   cHand.unshift(cDeck.pop(), cDeck.pop(), cDeck.pop());
-  render(); 
+  render();
   if (pHand[0].value !== cHand[0].value) {
     winningHand();
     unrenderWarButton();
-  } 
+  }
 }
 
 function unrenderWarButton() {
